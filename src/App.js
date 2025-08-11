@@ -97,7 +97,7 @@ export default function App() {
             setWatchlist(stocks);
         }, (error) => console.error("Watchlist listener error:", error));
         return unsubscribe;
-    }, [db, userId]);
+    }, [userId]);
 
     const handleNewsFetched = useCallback((news) => setNewsForAI(news), []);
 
