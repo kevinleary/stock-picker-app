@@ -67,12 +67,13 @@ const ChartComponent = ({ data }) => {
             }
         };
 
+        const container = chartContainerRef.current;
         resizeObserver.current = new ResizeObserver(handleResize);
-        resizeObserver.current.observe(chartContainerRef.current);
+        resizeObserver.current.observe(container);
 
         return () => {
-            if (resizeObserver.current && chartContainerRef.current) {
-                resizeObserver.current.unobserve(chartContainerRef.current);
+            if (resizeObserver.current) {
+                resizeObserver.current.unobserve(container);
             }
             if (chartRef.current) {
                 chartRef.current.remove();
