@@ -3,8 +3,8 @@ import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken }
 import { getFirestore, collection, doc, setDoc, onSnapshot, deleteDoc } from 'firebase/firestore';
 
 // Firebase configuration - will be provided by the environment
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-export const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-stock-app';
+const firebaseConfig = typeof window.__firebase_config !== 'undefined' ? JSON.parse(window.__firebase_config) : {};
+export const appId = typeof window.__app_id !== 'undefined' ? window.__app_id : 'default-stock-app';
 
 let db, auth;
 
